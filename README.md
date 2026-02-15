@@ -1,7 +1,7 @@
 # Stroke Prediction - ML Classification Project
 
-🔗 **Live App**: [Coming Soon - Will be updated after deployment]  
-📂 **GitHub Repository**: [Coming Soon - Will be updated after deployment]
+**Live App**: https://strokepredictionapp-bits-pkm.streamlit.app/  
+**GitHub Repository**: https://github.com/pkm-bits/Stroke_Prediction_App/tree/main
 
 ---
 
