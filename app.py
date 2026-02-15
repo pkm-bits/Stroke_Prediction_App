@@ -197,7 +197,7 @@ def main():
     
     # PAGE 1: Model Overview
     if page == "Model Overview":
-        st.header("📋 Model Overview")
+        st.header("Model Overview")
         
         st.markdown("""
         ### About This Project
