@@ -20,7 +20,6 @@ from plotly.subplots import make_subplots
 # Page configuration
 st.set_page_config(
     page_title="Stroke Prediction ML App",
-    page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -180,12 +179,12 @@ def main():
     """Main Streamlit application"""
     
     # Header
-    st.markdown('<h1 class="main-header">🏥 Stroke Prediction ML Classification</h1>', 
+    st.markdown('<h1 class="main-header"> Stroke Prediction ML Classification</h1>', 
                 unsafe_allow_html=True)
     st.markdown("---")
     
     # Sidebar
-    st.sidebar.title("📊 Navigation")
+    st.sidebar.title("Navigation")
     page = st.sidebar.radio(
         "Select Page:",
         ["Model Overview", "Model Comparison", "Make Predictions"]
@@ -205,7 +204,7 @@ def main():
         This application demonstrates **6 different machine learning classification models** 
         for predicting stroke risk based on patient health data.
         
-        #### 🎯 Models Implemented:
+        #### Models Implemented:
         1. **Logistic Regression** - Linear probabilistic classifier
         2. **Decision Tree** - Tree-based rule classifier
         3. **K-Nearest Neighbors (kNN)** - Instance-based learning
@@ -213,7 +212,7 @@ def main():
         5. **Random Forest** - Ensemble of decision trees
         6. **XGBoost** - Gradient boosting ensemble method
         
-        #### 📊 Evaluation Metrics:
+        #### Evaluation Metrics:
         - **Accuracy**: Overall correct predictions
         - **AUC**: Area Under ROC Curve
         - **Precision**: Positive prediction accuracy
@@ -223,12 +222,12 @@ def main():
         """)
         
         if df_results is not None:
-            st.markdown("### 📈 Overall Results")
+            st.markdown("### Overall Results")
             st.dataframe(df_results.style.highlight_max(axis=0, color='lightgreen'), 
                         use_container_width=True)
             
             # Display best model
-            st.markdown("### 🏆 Best Performing Models")
+            st.markdown("### Best Performing Models")
             col1, col2, col3 = st.columns(3)
             
             with col1:
@@ -248,7 +247,7 @@ def main():
     
     # PAGE 2: Model Comparison
     elif page == "Model Comparison":
-        st.header("📊 Model Comparison")
+        st.header("Model Comparison")
         
         if df_results is not None:
             # Metrics comparison chart
@@ -264,7 +263,7 @@ def main():
             )
             
             # Model rankings
-            st.markdown("### 🥇 Model Rankings by Metric")
+            st.markdown("### Model Rankings by Metric")
             col1, col2 = st.columns(2)
             
             with col1:
@@ -283,7 +282,7 @@ def main():
     
     # PAGE 3: Make Predictions
     elif page == "Make Predictions":
-        st.header("🔮 Make Predictions")
+        st.header("Make Predictions")
         
         # Model selection
         model_options = [
@@ -301,7 +300,7 @@ def main():
         )
         
         # File upload
-        st.markdown("### 📁 Upload Test Data")
+        st.markdown("### Upload Test Data")
         st.info("Upload a CSV file with test data. The file can include the 'stroke' column for evaluation.")
         
         uploaded_file = st.file_uploader(
@@ -314,7 +313,7 @@ def main():
             # Load data
             test_data = pd.read_csv(uploaded_file)
             
-            st.markdown("### 📋 Uploaded Data Preview")
+            st.markdown("### Uploaded Data Preview")
             st.dataframe(test_data.head(10), use_container_width=True)
             st.write(f"**Total samples:** {len(test_data)}")
             
@@ -334,10 +333,10 @@ def main():
                     except:
                         y_pred_proba = None
                     
-                    st.success(f"✅ Predictions completed using **{selected_model}**")
+                    st.success(f"Predictions completed using **{selected_model}**")
                     
                     # Show predictions
-                    st.markdown("### 🎯 Predictions")
+                    st.markdown("### Predictions")
                     pred_df = pd.DataFrame({
                         'Prediction': y_pred,
                         'Predicted_Class': ['No Stroke' if p == 0 else 'Stroke' for p in y_pred]
@@ -351,7 +350,7 @@ def main():
                     # Download predictions
                     csv = pred_df.to_csv(index=False)
                     st.download_button(
-                        label="📥 Download Predictions",
+                        label="Download Predictions",
                         data=csv,
                         file_name=f'predictions_{selected_model.replace(" ", "_").lower()}.csv',
                         mime='text/csv'
@@ -359,7 +358,7 @@ def main():
                     
                     # If ground truth available, show metrics
                     if y_true is not None:
-                        st.markdown("### 📊 Evaluation Metrics")
+                        st.markdown("### Evaluation Metrics")
                         
                         metrics = calculate_metrics_from_data(y_true, y_pred, y_pred_proba)
                         
@@ -376,13 +375,13 @@ def main():
                             st.metric("MCC", f"{metrics['MCC']:.4f}")
                         
                         # Confusion matrix
-                        st.markdown("### 🔲 Confusion Matrix")
+                        st.markdown("### Confusion Matrix")
                         cm = confusion_matrix(y_true, y_pred)
                         fig_cm = plot_confusion_matrix(cm, selected_model)
                         st.plotly_chart(fig_cm, use_container_width=True)
                         
                         # Classification report
-                        st.markdown("### 📄 Classification Report")
+                        st.markdown("### Classification Report")
                         report = classification_report(
                             y_true, y_pred,
                             target_names=['No Stroke', 'Stroke'],
