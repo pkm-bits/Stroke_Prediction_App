@@ -59,12 +59,12 @@ The dataset contains the following features:
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |--------------|----------|-----|-----------|--------|----|----|
-| **Logistic Regression** | [0.9511] | [0.8377] | [0.0] | [0.0] | [0.0] | [0.0] |
-| **Decision Tree** | [0.9286] | [0.691] | [0.0741] | [0.04] | [0.0519] | [0.0192] |
-| **kNN** | [0.9481] | [0.614] | [0.2] | [0.02] | [0.0364] | [0.0491] |
-| **Naive Bayes** | [0.8679] | [0.8033] | [0.1654] | [0.42] | [0.2373] | [0.2033] |
-| **Random Forest (Ensemble)** | [0.9521] | [0.8256] | [1.0] | [0.02] | [0.0392] | [0.138] |
-| **XGBoost (Ensemble)** | [0.9462] | [0.8001] | [0.3333] | [0.1] | [0.1538] | [0.1609] |
+| **Logistic Regression** | 0.9511 | 0.8377 | 0.0 | 0.0 | 0.0 | 0.0 |
+| **Decision Tree** | 0.9286 | 0.691 | 0.0741 | 0.04 | 0.0519 | 0.0192 |
+| **kNN** | 0.9481 | 0.614 | 0.2 | 0.02 | 0.0364 | 0.0491 |
+| **Naive Bayes** | 0.8679 | 0.8033 | 0.1654 | 0.42 | 0.2373 | 0.2033 |
+| **Random Forest (Ensemble)** | 0.9521 | 0.8256 | 1.0 | 0.02 | 0.0392 | 0.138 |
+| **XGBoost (Ensemble)** | 0.9462 | 0.8001 | 0.3333 | 0.1 | 0.1538 | 0.1609 |
 
 **Note**: Run `python model/train_models.py` to train all models and generate actual metrics.
 
